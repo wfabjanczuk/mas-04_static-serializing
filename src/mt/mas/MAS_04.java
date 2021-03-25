@@ -15,7 +15,7 @@ public class MAS_04 {
     public static void main(String[] args) {
         try {
 //            testExtentObjectPlus();
-            testExtentObjectPlusV2();
+            testExtentAndStaticFieldsOfObjectPlusV2();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -52,39 +52,41 @@ public class MAS_04 {
         Movie2.showExtent();
     }
 
-    private static void testExtentObjectPlusV2() throws Exception {
+    private static void testExtentAndStaticFieldsOfObjectPlusV2() throws Exception {
         final String extentFilePath = "extent-objectplusv2.bin";   // TODO update the file name
 
         var film1 = new Movie2_V2("Terminator 1", new Date(), 29.90f);
         var film2 = new Movie2_V2("Terminator 2", new Date(), 34.90f);
 
-        Movie2_V2.showExtent();
-        Movie2_V2.showStaticFields();
-
         try {
             // Write the extent to the stream
             var out = new ObjectOutputStream(new FileOutputStream(extentFilePath));
-            ObjectPlusV2.writeExtents(out);
+            ObjectPlusV2.writeSerializedSubclasses(out);
             out.close();
+
+            System.out.println("\n1. Movie2_V2 Just after serializing: \n");
+            Movie2_V2.showExtent();
+            Movie2_V2.showStaticFields();
 
             // Set static fields to null before reading extent from the stream
             Movie2_V2.setInstanceCount(null);
             Movie2_V2.setLastInstanceCreationDate(null);
 
+            System.out.println("\n2. Movie2_V2 After temporary setting static fields to null: \n");
+            Movie2_V2.showExtent();
+            Movie2_V2.showStaticFields();
+
             // Read the extent from the stream
             var in = new ObjectInputStream(new FileInputStream(extentFilePath));
-            ObjectPlusV2.readExtents(in);
+            ObjectPlusV2.readSerializedSubclasses(in);
             in.close();
 
-            // Gets the extent and show the content of it
-            Iterable<Movie2_V2> movieExtent = ObjectPlusV2.getExtent(Movie2_V2.class);
-            for (var movie : movieExtent) {
-                System.out.println(movie.getTitle());
-            }
+            System.out.println("\n3. Movie2_V2 After reading serialized subclasses: \n");
+            Movie2_V2.showExtent();
+            Movie2_V2.showStaticFields();
+
         } catch (ClassNotFoundException | IOException e) {
             e.printStackTrace();
         }
-
-        Movie2_V2.showExtent();
     }
 }

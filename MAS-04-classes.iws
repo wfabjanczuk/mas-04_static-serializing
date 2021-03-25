@@ -5,7 +5,6 @@
       <change beforePath="$PROJECT_DIR$/MAS-04-classes.iws" beforeDir="false" afterPath="$PROJECT_DIR$/MAS-04-classes.iws" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/extent-objectplusv2.bin" beforeDir="false" afterPath="$PROJECT_DIR$/extent-objectplusv2.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mt/mas/MAS_04.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mt/mas/MAS_04.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mt/mas/Movie2_V2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mt/mas/Movie2_V2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mt/mas/ObjectPlusV2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mt/mas/ObjectPlusV2.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -24,6 +23,11 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsbtTreeLayoutManager">
+    <layout place="tools.popupGrunt">
+      <scroll-view-position x="0" y="0" />
+    </layout>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-12" />
@@ -100,7 +104,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1550776088758</updated>
-      <workItem from="1616699996028" duration="8762000" />
+      <workItem from="1616699996028" duration="9467000" />
     </task>
     <task id="LOCAL-00001" summary="Javassist dependency added">
       <created>1616707813059</created>
@@ -116,7 +120,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616707901558</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Static fields serializing">
+      <created>1616711415585</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1616711415585</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -136,7 +147,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Javassist dependency added" />
     <MESSAGE value="Printing all ObjectPlusV2 subclasses in runtime" />
-    <option name="LAST_COMMIT_MESSAGE" value="Printing all ObjectPlusV2 subclasses in runtime" />
+    <MESSAGE value="Static fields serializing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Static fields serializing" />
   </component>
   <component name="masterDetails">
     <states>

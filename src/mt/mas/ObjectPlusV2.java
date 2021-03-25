@@ -39,7 +39,7 @@ public abstract class ObjectPlusV2 implements Serializable {
      *
      * @throws IOException
      */
-    public static void writeExtents(ObjectOutputStream stream) throws IOException, IllegalAccessException {
+    public static void writeSerializedSubclasses(ObjectOutputStream stream) throws IOException, IllegalAccessException {
         readAllStaticFieldsFromSubclasses();
         stream.writeObject(allExtents);
         stream.writeObject(allStaticFields);
@@ -51,7 +51,7 @@ public abstract class ObjectPlusV2 implements Serializable {
      * @throws IOException
      * @throws ClassNotFoundException
      */
-    public static void readExtents(ObjectInputStream stream)
+    public static void readSerializedSubclasses(ObjectInputStream stream)
             throws IOException, ClassNotFoundException, NoSuchFieldException, IllegalAccessException {
         allExtents = (Hashtable) stream.readObject();
         allStaticFields = (Hashtable) stream.readObject();
@@ -144,7 +144,10 @@ public abstract class ObjectPlusV2 implements Serializable {
         System.out.println("---- Static fields of the class: " + theClass.getSimpleName() + " ----");
 
         for (Map.Entry entry : staticFields.entrySet()) {
-            System.out.println(entry.getKey() + ": " + entry.getValue().toString());
+            System.out.println(entry.getKey() + ": " + (entry.getValue() == null
+                    ? "(null)"
+                    : entry.getValue().toString()
+            ));
         }
     }
 }
