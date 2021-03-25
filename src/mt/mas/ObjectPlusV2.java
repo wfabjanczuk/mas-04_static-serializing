@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 import java.util.*;
 
 /**
@@ -17,6 +19,7 @@ import java.util.*;
  */
 public abstract class ObjectPlusV2 implements Serializable {
     private static Map<Class, List<ObjectPlusV2>> allExtents = new Hashtable<>();
+    private static Map<Class, Map<String, Object>> allStaticFields = new Hashtable<>();
 
     /**
      * Constructor.
@@ -42,8 +45,10 @@ public abstract class ObjectPlusV2 implements Serializable {
      *
      * @throws IOException
      */
-    public static void writeExtents(ObjectOutputStream stream) throws IOException {
+    public static void writeExtents(ObjectOutputStream stream) throws IOException, IllegalAccessException {
         stream.writeObject(allExtents);
+        readAllStaticFieldsFromSubclasses();
+        stream.writeObject(allStaticFields);
     }
 
     /**
@@ -54,6 +59,7 @@ public abstract class ObjectPlusV2 implements Serializable {
      */
     public static void readExtents(ObjectInputStream stream) throws IOException, ClassNotFoundException {
         allExtents = (Hashtable) stream.readObject();
+        allStaticFields = (Hashtable) stream.readObject();
     }
 
     /**
@@ -92,6 +98,21 @@ public abstract class ObjectPlusV2 implements Serializable {
         }
 
         throw new ClassNotFoundException(String.format("%s. Stored extents: %s", type.toString(), allExtents.keySet()));
+    }
+
+    private static void readAllStaticFieldsFromSubclasses() throws IllegalAccessException {
+        for (Class<? extends ObjectPlusV2> subclass : getSubclasses()) {
+            LinkedHashMap<String, Object> staticFieldMap = new LinkedHashMap<>();
+
+            for (Field field : subclass.getDeclaredFields()) {
+                if (Modifier.isStatic(field.getModifiers())) {
+                    field.setAccessible(true);
+                    staticFieldMap.put(field.getName(), field.get(null));
+                }
+            }
+
+            allStaticFields.put(subclass, staticFieldMap);
+        }
     }
 
     private static Set<Class<? extends ObjectPlusV2>> getSubclasses() {

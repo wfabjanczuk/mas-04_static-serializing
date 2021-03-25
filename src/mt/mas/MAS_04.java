@@ -53,6 +53,33 @@ public class MAS_04 {
     }
 
     private static void testExtentObjectPlusV2() throws Exception {
-        ObjectPlusV2.printSubclasses();
+        final String extentFilePath = "extent-objectplusv2.bin";   // TODO update the file name
+
+        var film1 = new Movie2_V2("Terminator 1", new Date(), 29.90f);
+        var film2 = new Movie2_V2("Terminator 2", new Date(), 34.90f);
+
+        Movie2_V2.showExtent();
+
+        try {
+            // Write the extent to the stream
+            var out = new ObjectOutputStream(new FileOutputStream(extentFilePath));
+            ObjectPlusV2.writeExtents(out);
+            out.close();
+
+            // Read the extent from the stream
+            var in = new ObjectInputStream(new FileInputStream(extentFilePath));
+            ObjectPlusV2.readExtents(in);
+            in.close();
+
+            // Gets the extent and show the content of it
+            Iterable<Movie2_V2> movieExtent = ObjectPlusV2.getExtent(Movie2_V2.class);
+            for (var movie : movieExtent) {
+                System.out.println(movie.getTitle());
+            }
+        } catch (ClassNotFoundException | IOException e) {
+            e.printStackTrace();
+        }
+
+        Movie2_V2.showExtent();
     }
 }
