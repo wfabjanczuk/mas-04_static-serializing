@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="95007956-a9c6-4015-9d04-cc2291499ee4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/dependencies/reflections-0.9.12.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dependencies/javassist.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MAS-04-classes.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MAS-04-classes.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MAS-04-classes.iws" beforeDir="false" afterPath="$PROJECT_DIR$/MAS-04-classes.iws" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mt/mas/MAS_04.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mt/mas/MAS_04.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mt/mas/Movie2_V2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mt/mas/Movie2_V2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mt/mas/ObjectPlusV2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mt/mas/ObjectPlusV2.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +44,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550786938864" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/dependencies/reflections-0.9.12.jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/dependencies/javassist.jar" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -97,7 +101,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1550776088758</updated>
-      <workItem from="1616699996028" duration="3156000" />
+      <workItem from="1616699996028" duration="5213000" />
     </task>
     <servers />
   </component>
