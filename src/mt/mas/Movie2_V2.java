@@ -14,6 +14,9 @@ public class Movie2_V2 extends ObjectPlusV2 implements Serializable {
 
 	//	 Business implementation
 
+	private static int instanceCount = 0;
+	private static Date lastInstanceCreationDate = null;
+
 	private String title;
 	private float price;
 	private Date additionDate;
@@ -28,6 +31,9 @@ public class Movie2_V2 extends ObjectPlusV2 implements Serializable {
 		this.title = title;
 		this.additionDate = additionDate;
 		this.price = price;
+
+		instanceCount++;
+		lastInstanceCreationDate = new Date();
 	}
 
 	public String getTitle() {

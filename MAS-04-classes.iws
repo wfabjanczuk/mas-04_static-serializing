@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="95007956-a9c6-4015-9d04-cc2291499ee4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/dependencies/javassist.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MAS-04-classes.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MAS-04-classes.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MAS-04-classes.iws" beforeDir="false" afterPath="$PROJECT_DIR$/MAS-04-classes.iws" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mt/mas/MAS_04.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mt/mas/MAS_04.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mt/mas/Movie2_V2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mt/mas/Movie2_V2.java" afterDir="false" />
@@ -101,8 +99,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1550776088758</updated>
-      <workItem from="1616699996028" duration="5213000" />
+      <workItem from="1616699996028" duration="5330000" />
     </task>
+    <task id="LOCAL-00001" summary="Javassist dependency added">
+      <created>1616707813059</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1616707813059</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -118,6 +124,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Javassist dependency added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Javassist dependency added" />
   </component>
   <component name="masterDetails">
     <states>
