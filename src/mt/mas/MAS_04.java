@@ -59,12 +59,17 @@ public class MAS_04 {
         var film2 = new Movie2_V2("Terminator 2", new Date(), 34.90f);
 
         Movie2_V2.showExtent();
+        Movie2_V2.showStaticFields();
 
         try {
             // Write the extent to the stream
             var out = new ObjectOutputStream(new FileOutputStream(extentFilePath));
             ObjectPlusV2.writeExtents(out);
             out.close();
+
+            // Set static fields to null before reading extent from the stream
+            Movie2_V2.setInstanceCount(null);
+            Movie2_V2.setLastInstanceCreationDate(null);
 
             // Read the extent from the stream
             var in = new ObjectInputStream(new FileInputStream(extentFilePath));

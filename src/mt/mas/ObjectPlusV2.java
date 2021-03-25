@@ -11,12 +11,6 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.*;
 
-/**
- * @author Mariusz Trzaska
- * Fill free to send me any remarks: mtrzaska@pjwstk.edu.pl
- * <p>
- * The code could be improved - see the homework in the lecture.
- */
 public abstract class ObjectPlusV2 implements Serializable {
     private static Map<Class, List<ObjectPlusV2>> allExtents = new Hashtable<>();
     private static Map<Class, Map<String, Object>> allStaticFields = new Hashtable<>();
@@ -46,8 +40,8 @@ public abstract class ObjectPlusV2 implements Serializable {
      * @throws IOException
      */
     public static void writeExtents(ObjectOutputStream stream) throws IOException, IllegalAccessException {
-        stream.writeObject(allExtents);
         readAllStaticFieldsFromSubclasses();
+        stream.writeObject(allExtents);
         stream.writeObject(allStaticFields);
     }
 
@@ -57,9 +51,11 @@ public abstract class ObjectPlusV2 implements Serializable {
      * @throws IOException
      * @throws ClassNotFoundException
      */
-    public static void readExtents(ObjectInputStream stream) throws IOException, ClassNotFoundException {
+    public static void readExtents(ObjectInputStream stream)
+            throws IOException, ClassNotFoundException, NoSuchFieldException, IllegalAccessException {
         allExtents = (Hashtable) stream.readObject();
         allStaticFields = (Hashtable) stream.readObject();
+        writeAllStaticFieldsToSubclasses();
     }
 
     /**
@@ -77,7 +73,7 @@ public abstract class ObjectPlusV2 implements Serializable {
             throw new Exception("Unknown class " + theClass);
         }
 
-        System.out.println("Extent of the class: " + theClass.getSimpleName());
+        System.out.println("---- Extent of the class: " + theClass.getSimpleName() + " ----");
 
         for (Object obj : extent) {
             System.out.println(obj);
@@ -102,16 +98,30 @@ public abstract class ObjectPlusV2 implements Serializable {
 
     private static void readAllStaticFieldsFromSubclasses() throws IllegalAccessException {
         for (Class<? extends ObjectPlusV2> subclass : getSubclasses()) {
-            LinkedHashMap<String, Object> staticFieldMap = new LinkedHashMap<>();
+            readAllStaticFieldsFromSubclass(subclass);
+        }
+    }
 
-            for (Field field : subclass.getDeclaredFields()) {
-                if (Modifier.isStatic(field.getModifiers())) {
-                    field.setAccessible(true);
-                    staticFieldMap.put(field.getName(), field.get(null));
-                }
+    private static void readAllStaticFieldsFromSubclass(Class<? extends ObjectPlusV2> subclass) throws IllegalAccessException {
+        LinkedHashMap<String, Object> staticFieldMap = new LinkedHashMap<>();
+
+        for (Field field : subclass.getDeclaredFields()) {
+            if (Modifier.isStatic(field.getModifiers())) {
+                field.setAccessible(true);
+                staticFieldMap.put(field.getName(), field.get(null));
             }
+        }
 
-            allStaticFields.put(subclass, staticFieldMap);
+        allStaticFields.put(subclass, staticFieldMap);
+    }
+
+    private static void writeAllStaticFieldsToSubclasses() throws IllegalAccessException, NoSuchFieldException {
+        for (Class subclass : allStaticFields.keySet()) {
+            for (String fieldName : allStaticFields.get(subclass).keySet()) {
+                Field field = subclass.getDeclaredField(fieldName);
+                field.setAccessible(true);
+                field.set(null, allStaticFields.get(subclass).get(fieldName));
+            }
         }
     }
 
@@ -124,6 +134,17 @@ public abstract class ObjectPlusV2 implements Serializable {
     public static void printSubclasses() {
         for (Class<? extends ObjectPlusV2> subclass : getSubclasses()) {
             System.out.println(subclass.getSimpleName());
+        }
+    }
+
+    public static void showStaticFields(Class theClass) throws Exception {
+        readAllStaticFieldsFromSubclass(theClass);
+        Map<String, Object> staticFields = allStaticFields.get(theClass);
+
+        System.out.println("---- Static fields of the class: " + theClass.getSimpleName() + " ----");
+
+        for (Map.Entry entry : staticFields.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue().toString());
         }
     }
 }
