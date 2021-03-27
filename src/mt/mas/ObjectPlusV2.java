@@ -1,8 +1,5 @@
 package mt.mas;
 
-import org.reflections.Reflections;
-import org.reflections.scanners.SubTypesScanner;
-
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -125,10 +122,8 @@ public abstract class ObjectPlusV2 implements Serializable {
         }
     }
 
-    private static Set<Class<? extends ObjectPlusV2>> getSubclasses() {
-        Reflections reflections = new Reflections(
-                "", new SubTypesScanner());
-        return reflections.getSubTypesOf(ObjectPlusV2.class);
+    private static Set<Class> getSubclasses() {
+        return allExtents.keySet();
     }
 
     public static void printSubclasses() {
