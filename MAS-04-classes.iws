@@ -3,10 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="95007956-a9c6-4015-9d04-cc2291499ee4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/MAS-04-classes.iws" beforeDir="false" afterPath="$PROJECT_DIR$/MAS-04-classes.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dependencies/javassist.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dependencies/reflections-0.9.12.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/extent-objectplusv2.bin" beforeDir="false" afterPath="$PROJECT_DIR$/extent-objectplusv2.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mt/mas/ObjectPlusV2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mt/mas/ObjectPlusV2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mt/mas/MAS_04.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mt/mas/MAS_04.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mt/mas/Movie2_V2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mt/mas/Movie2_V2.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,11 +48,14 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550786938864" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/dependencies/javassist.jar" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -77,6 +79,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.MAS_04" />
@@ -95,6 +110,7 @@
       <option name="presentableId" value="Default" />
       <updated>1550776088758</updated>
       <workItem from="1616699996028" duration="9467000" />
+      <workItem from="1617130091996" duration="2298000" />
     </task>
     <task id="LOCAL-00001" summary="Javassist dependency added">
       <created>1616707813059</created>

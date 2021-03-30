@@ -69,7 +69,7 @@ public class MAS_04 {
             Movie2_V2.showStaticFields();
 
             // Set static fields to null before reading extent from the stream
-            Movie2_V2.setInstanceCount(null);
+            Movie2_V2.setMovieReviewSource(null);
             Movie2_V2.setLastInstanceCreationDate(null);
 
             System.out.println("\n2. Movie2_V2 After temporary setting static fields to null: \n");

@@ -8,7 +8,7 @@ public class Movie2_V2 extends ObjectPlusV2 implements Serializable {
 
     //	 Business implementation
 
-    private static Integer instanceCount = 0;
+    private static String movieReviewSource = "Filmweb.pl";
     private static Date lastInstanceCreationDate = null;
 
     private String title;
@@ -26,8 +26,7 @@ public class Movie2_V2 extends ObjectPlusV2 implements Serializable {
         this.additionDate = additionDate;
         this.price = price;
 
-        instanceCount++;
-        lastInstanceCreationDate = new Date();
+        lastInstanceCreationDate = additionDate;
     }
 
     public String getTitle() {
@@ -93,16 +92,16 @@ public class Movie2_V2 extends ObjectPlusV2 implements Serializable {
         this.additionDate = additionDate;
     }
 
-    public static Integer getInstanceCount() {
-        return instanceCount;
-    }
-
-    public static void setInstanceCount(Integer instanceCount) {
-        Movie2_V2.instanceCount = instanceCount;
-    }
-
     public static Date getLastInstanceCreationDate() {
         return lastInstanceCreationDate;
+    }
+
+    public static String getMovieReviewSource() {
+        return movieReviewSource;
+    }
+
+    public static void setMovieReviewSource(String movieReviewSource) {
+        Movie2_V2.movieReviewSource = movieReviewSource;
     }
 
     public static void setLastInstanceCreationDate(Date lastInstanceCreationDate) {
